@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="all_schools.css" />
+    <title>All School</title>
+  </head>
+  <body>
+    <!-- header section  -->
+    <div class="nav-bar">
+      <!-- logo  -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.jpg" alt="school logo"
+        /></a>
+      </div>
+      <!-- search bar  -->
+      <div class="search">
+        <!-- input field  -->
+        <div class="input-field">
+          <input type="text" placeholder="Search Keyword(s)" size="30" />
+        </div>
+        <!-- search logo  -->
+        <div class="search-logo">
+          <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-field">
+      All School Collection
+    </div>
+
+    <!-- Images Section  -->
+    <div class="images">
+      <div th:each="school: ${schoolBuildingPage}">
+
+        <div class="imageText">
+          <div class="image">
+            <img src="images/school.jpg" alt="school image" />
+          </div>
+          <div class="text"><p th:text="${school.schoolNames}"/></div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div th:if="${totalPages > 0}" class="pagination">
+
+<!--      <a href="#">&laquo;</a>-->
+      <span th:each="pageNumber: ${#numbers.sequence(1, totalPages)}">
+      <a th:href="@{/all_schools(page=${pageNumber})}"
+         th:text="${pageNumber}"
+         th:class="${pageNumber== currentPage} ? active"><a/>
+
+    </span>
+      </div>
+
+
+
+
+<!-- Pagination-->
+<!--    <div class="pagination">-->
+<!--      <div class = "col-sm-2">-->
+<!--        Total Rows: [[${pageSize}]]-->
+<!--      </div>-->
+<!--      <p th:each="number: ${#numbers.sequence(0,2)}">-->
+
+<!--        <a href="#">&laquo;</a>-->
+<!--      <a class="active" th:href="@{'/all_schools/' + ${number}}">[[${number}]]</a>-->
+
+<!--      <a href="#">2</a>-->
+<!--      <a href="#">3</a>-->
+<!--      <a href="#">4</a>-->
+<!--      <a href="#">5</a>-->
+<!--      <a href="#">6</a>-->
+<!--      <a href="#">&raquo;</a>-->
+<!--      </p>-->
+<!--    </div>-->
+
+
+<!--  <div class="pagination">-->
+<!--    <div th:if = "${totalPages > 1}">-->
+<!--      <div class = "row col-sm-10">-->
+<!--        <div class = "col-sm-2">-->
+<!--          Total Rows: [[${totalItems}]]-->
+<!--        </div>-->
+<!--        <div class = "col-sm-1">-->
+
+<!--          <p th:each="number: ${#numbers.sequence(0,2)}">-->
+
+<!--            <span th:text="${number}"></span>-->
+<!--          </p>-->
+<!--          <p th:each="number: ${#numbers.sequence(0,4,2)}">-->
+<!--            &lt;!&ndash;/*@thymesVar id="number" type="templates"*/&ndash;&gt;-->
+<!--            <span th:text="${number}"></span>-->
+<!--          </p>-->
+
+<!--                    &lt;!&ndash;/*@thymesVar id="number" type="templates"*/&ndash;&gt;-->
+<!--					<span th:each="index: ${#numbers.sequence(1, totalPages)}">-->
+<!--                      &lt;!&ndash;/*@thymesVar id="number" type="templates"*/&ndash;&gt;-->
+<!--						<a th:if="${currentPage != index}" th:href="@{'/all_schools/' + ${i}}">[[${i}]]</a>-->
+<!--						<span th:unless=M${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;-->
+<!--					</span>-->
+<!--        </div>-->
+<!--        <div class = "col-sm-1">-->
+<!--          <a th:if="${currentPage < totalPages}" th:href="@{'/all_schools/' + ${currentPage + 1}}">Next</a>-->
+<!--          <span th:unless="${currentPage < totalPages}">Next</span>-->
+<!--        </div>-->
+
+<!--        <div class="col-sm-1">-->
+<!--          <a th:if="${currentPage < totalPages}" th:href="@{'/all_schools/' + ${totalPages}}">Last</a>-->
+<!--          <span th:unless="${currentPage < totalPages}">Last</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    </div>-->
+
+
+
+
+
+
+    <!-- Bottom Section  -->
+    <div class="bottom">
+      <!-- logo and address  -->
+      <div class="logo_address">
+        <!-- Logo section  -->
+        <div class="logoo">
+          <a href="index.html"><img src="images/logo.jpg" alt="" /></a>
+        </div>
+        <!-- Address section  -->
+        <div class="address">
+          <p>1000 17th Avenue N.</p>
+          <p>Nashville, TN 37208</p>
+        </div>
+      </div>
+
+      <!-- about section  -->
+      <div class="about_stuffs">
+        <p>About Rosenwald Database</p>
+        <p>About Fisk University</p>
+        <p>About the Developoer Team</p>
+      </div>
+
+      <!-- Other items  -->
+      <div class="items">
+        <p>Library Catalogue</p>
+        <p>Special Collections</p>
+        <p>Research Guides</p>
+      </div>
+
+      <!-- admin  -->
+      <div class="admin">
+        <p>Admin, Login</p>
+      </div>
+
+      <!-- Contact  -->
+      <div class="contact">
+        <p>Contact Us</p>
+        <p>Feedback</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
