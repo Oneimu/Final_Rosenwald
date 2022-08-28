@@ -11,16 +11,12 @@ public class SchoolDataDto {
 
     private String County;
 
-    //    @Column(name = "School Names")
     private String schoolNames;
 
-    //    @Column(name = "Alternate Names")
     private String alternateNames;
 
-    //    @Column(name = "Appl #")
     private String Appl;
 
-    //    @Column(name = "Date.Original")
     private String originalDate;
 
     private String Title;
@@ -39,10 +35,8 @@ public class SchoolDataDto {
 
     private String Format;
 
-    //    @Column(name = "School Card ID")
     private String schoolCardId;
 
-    //    @Column(name = "Photo ID #")
     private String photoId;
 
     public SchoolBuilding toEntity(){
