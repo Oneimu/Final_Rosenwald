@@ -18,8 +18,8 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model) {
 
-        rosenwaldSchoolBuildingService.saveCsv();
-        uniqueSchoolName.updateSchoolName();
+//        rosenwaldSchoolBuildingService.saveCsv();
+//        uniqueSchoolName.updateSchoolName();
         model.addAttribute("schools", rosenwaldSchoolBuildingService.getAllSchoolBuildings().subList(1, 10));
         return "index";
     }

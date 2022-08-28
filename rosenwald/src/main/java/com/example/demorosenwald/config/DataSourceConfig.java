@@ -13,7 +13,7 @@ public class DataSourceConfig {
     public DataSource dataSource(){
         return DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://localhost:3306/rosenwald")
+                .url("jdbc:mysql://rosenwald-database-website.cogizoqxpnzn.us-east-1.rds.amazonaws.com:3306/rosenwald")
                 .username("root")
                 .password("Davidson2001*")
                 .build();
