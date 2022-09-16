@@ -19,7 +19,8 @@ public class HomeController {
     public String home(Model model) {
 
 //        rosenwaldSchoolBuildingService.saveCsv();
-//        uniqueSchoolName.updateSchoolName();
+        uniqueSchoolName.updateSchoolName();
+        System.out.println("Here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         model.addAttribute("schools", rosenwaldSchoolBuildingService.getAllSchoolBuildings().subList(1, 10));
         return "index";
     }

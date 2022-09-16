@@ -62,9 +62,12 @@ public class CSVtoDb {
             schoolDataDto.setSource(record.get("Source"));
             schoolDataDto.setSubject(record.get("Subject"));
 
+            System.out.println(schoolDataDto);
+
             allSchoolData.add(schoolDataDto.toEntity());
 
         }
+
 
     }
 

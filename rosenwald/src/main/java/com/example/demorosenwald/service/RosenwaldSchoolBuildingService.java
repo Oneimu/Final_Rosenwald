@@ -114,7 +114,9 @@ public class RosenwaldSchoolBuildingService {
             throw new RuntimeException(e);
         }
         if (!csvtoDb.getAllSchoolData().isEmpty()) {
+            System.out.println(csvtoDb.getAllSchoolData().size());
             saveAllSchools(csvtoDb.getAllSchoolData());
+            System.out.println("HERE211111111111111111111111111111111111111111111111111111111111111111");
         }
     }
 
