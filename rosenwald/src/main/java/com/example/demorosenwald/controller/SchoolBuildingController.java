@@ -1,7 +1,9 @@
-package com.example.demorosenwald.dataControllers;
+package com.example.demorosenwald.controller;
 
 import com.example.demorosenwald.entity.SchoolBuilding;
 import com.example.demorosenwald.service.RosenwaldSchoolBuildingService;
+import com.example.demorosenwald.util.UniqueSchoolName;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -12,20 +14,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
+@RequiredArgsConstructor
 public class SchoolBuildingController{
 
-    private RosenwaldSchoolBuildingService rosenwaldSchoolBuildingService;
+    private final RosenwaldSchoolBuildingService rosenwaldSchoolBuildingService;
 
-    public SchoolBuildingController(RosenwaldSchoolBuildingService rosenwaldSchoolBuildingService) {
-        this.rosenwaldSchoolBuildingService = rosenwaldSchoolBuildingService;
-    }
-
+    private final UniqueSchoolName uniqueSchoolName;
 
     @RequestMapping(value = "/all_schools", method = RequestMethod.GET)
     public String allSchools(
             Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size) {
+
+        uniqueSchoolName.updateSchoolName();
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(12);
 
@@ -36,7 +38,6 @@ public class SchoolBuildingController{
         int totalPages = schoolBuildingPage.getTotalPages();
 
         model.addAttribute("totalPages", totalPages);
-//        model.addAttribute("totalItems", pageSize);
         model.addAttribute("currentPage", currentPage);
 
         return "all_schools";

@@ -1,4 +1,4 @@
-package com.example.demorosenwald.dataControllers;
+package com.example.demorosenwald.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,3 +12,4 @@ public class AboutController {
     }
 
 }
+

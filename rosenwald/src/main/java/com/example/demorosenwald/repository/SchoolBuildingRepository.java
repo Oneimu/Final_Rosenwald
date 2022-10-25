@@ -1,7 +1,6 @@
 package com.example.demorosenwald.repository;
 
 
-import com.example.demorosenwald.dto.uidProjections;
 import com.example.demorosenwald.entity.SchoolBuilding;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,15 +10,18 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SchoolDataRepository extends JpaRepository<SchoolBuilding, String> {
+public interface SchoolBuildingRepository extends JpaRepository<SchoolBuilding, String> {
 
-//    List<SchoolBuilding> findDistinctFirstByTitle();
+//    List<SchoolBuildingng> findDistinctByTitle();
 
-    @Query("SELECT new com.example.demorosenwald.dto.uidProjections(s.UID) FROM SchoolBuilding s WHERE s.Title =: title" ) //com.example.demorosenwald.service.RosenwaldSchoolBuildingService")
-    List<String> getSchoolUIDs(@Param("title") String title);
+    @Query("SELECT new com.example.demorosenwald.util.uidProjections(s.UID) FROM SchoolBuilding s WHERE s.Title =: title" )
+    List<String> getSchoolPhotoIDs(@Param("title") String title);
 
+    // this query failed after working fore some time, to-do use a diction
     @Query("SELECT s FROM SchoolBuilding AS s group by s.Title")
     List<SchoolBuilding> getAllSchoolBuilding();
+
+    List<SchoolBuilding> findAll();
 
 
 

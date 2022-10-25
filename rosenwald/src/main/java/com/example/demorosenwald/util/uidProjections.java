@@ -1,4 +1,4 @@
-package com.example.demorosenwald.dto;
+package com.example.demorosenwald.util;
 
 import lombok.Data;
 
